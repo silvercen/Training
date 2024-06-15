@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Cart {
 
-    private List<Product> products = new ArrayList<Product>();
+    private List<Product> products = new ArrayList<>();
     private float totalValue=0;
 
     public void addProd(Product product)
