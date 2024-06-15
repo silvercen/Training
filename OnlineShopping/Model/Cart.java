@@ -20,7 +20,7 @@ public class Cart {
         for(Product p:products)
         {
             p.disp();
-            totalValue = totalValue + p.getPrice();
+            totalValue = totalValue + (p.getPrice()*p.getQuantity());
         }
         System.out.println("Total Price : " + totalValue + "\n");
     }
