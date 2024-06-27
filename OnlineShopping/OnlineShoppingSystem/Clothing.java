@@ -7,11 +7,37 @@ public class Clothing extends Product{
     public Clothing(String productName, int productId, double price, int quantityInStock, String size, String material)
     {
         this.productName = productName;
-        this.productId = productId;
+        try
+        {
+            if(productId<0)
+            {
+                throw new IllegalArgumentException("Only Positive Values as ProductId");
+            }
+            if(Ids.contains(productId))
+            {
+                throw new DuplicateProductIDException("Duplicate ID entered");
+            }
+            this.productId = productId;
+        }
+        catch(IllegalArgumentException e)
+        {
+            System.out.println(e.getMessage());
+            System.exit(1);
+        }
+        catch (DuplicateProductIDException e)
+        {
+            System.out.println("Duplicate ID entered");
+            System.exit(1);
+        }
+        Ids.add(productId);
         this.price = price;
         this.quantityInStock = quantityInStock;
         this.size = size;
         this.material = material;
+    }
+
+    public int getID() {
+        return productId;
     }
 
     @Override
